@@ -27,21 +27,6 @@ namespace Dialog.Views
         public MainWindow()
         {
             InitializeComponent();
-            _messageBox = new MessageBoxService();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _messageBox.Show("Just a Message");
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            _messageBox.Show("A Message should appear here", "Caption of the dialog", MessageBoxServiceButton.OkCancel, MessageBoxServiceIcon.Warning);
-        }
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            _messageBox.Show("A Message should appear here", "Caption of the dialog", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Information,MessageBoxServiceResult.Yes);
         }
     }
 }

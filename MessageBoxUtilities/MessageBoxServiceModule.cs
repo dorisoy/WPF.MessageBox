@@ -13,11 +13,12 @@ namespace MessageBoxUtilities
 
         public void OnInitialized(IContainerProvider containerProvider)
         {
+
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IMessageBoxService, MessageBoxService>();
+            
         }
     }
 }

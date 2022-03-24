@@ -19,13 +19,15 @@ namespace MessageBoxUtilities
     /// </summary>
     public partial class MessageBoxDialog : Window
     {
-        private MessageBoxServiceResult _result;
+        private MessageBoxServiceResult _result = MessageBoxServiceResult.None;
         public MessageBoxServiceResult Result { get => _result; }
+
         public MessageBoxDialog(string message, string header="",MessageBoxServiceButton buttons = MessageBoxServiceButton.Ok, MessageBoxServiceIcon icon=MessageBoxServiceIcon.None,MessageBoxServiceResult defaultButton = MessageBoxServiceResult.OK)
         {
             InitializeComponent();
             MessageText.Text = message;
             Title = header;
+            _result = MessageBoxServiceResult.None;
             switch(icon)
             {
                 case MessageBoxServiceIcon.Information:
@@ -78,28 +80,33 @@ namespace MessageBoxUtilities
                     NoButton.IsDefault= true;
                     break;
                 case MessageBoxServiceResult.OK:
+                    OkButton.IsDefault = true;
                     break;           
             }
         }
 
         private void OKClicked(object sender, RoutedEventArgs e)
         {
-                _result = MessageBoxServiceResult.OK;
+            _result = MessageBoxServiceResult.OK;
+            DialogResult = true;
         }
 
         private void CancelClicked(object sender, RoutedEventArgs e)
         {
             _result= MessageBoxServiceResult.Cancel;
+            DialogResult = true;
         }
 
         private void YesClicked(object sender, RoutedEventArgs e)
         {
             _result = MessageBoxServiceResult.Yes;
+            DialogResult = true;
         }
 
         private void NoClicked(object sender, RoutedEventArgs e)
         {
             _result=MessageBoxServiceResult.No;
+            DialogResult = true;
         }
     }
     public enum MessageBoxServiceIcon
@@ -120,6 +127,7 @@ namespace MessageBoxUtilities
     }
     public enum MessageBoxServiceResult
     {
+        None,
         OK,
         Cancel,
         Yes,

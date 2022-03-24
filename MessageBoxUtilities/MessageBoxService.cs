@@ -71,9 +71,8 @@ namespace MessageBoxUtilities
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button);
             var res = dlg.ShowDialog();
-            if(res == true)
-                return MessageBoxServiceResult.OK;
-            return MessageBoxServiceResult.OK;
+            
+            return dlg.Result;
         }
 
         //
@@ -100,7 +99,10 @@ namespace MessageBoxUtilities
         //     is clicked by the user.
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button,icon);
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -130,9 +132,12 @@ namespace MessageBoxUtilities
         // Returns:
         //     A System.Windows.MessageBoxResult value that specifies which message box button
         //     is clicked by the user.
-        public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultResult)
+        public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultButton)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -152,7 +157,11 @@ namespace MessageBoxUtilities
         //     is clicked by the user.
         public MessageBoxServiceResult Show(Window owner, string messageBoxText)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText);
+            dlg.Owner = owner;
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -175,7 +184,11 @@ namespace MessageBoxUtilities
         //     is clicked by the user.
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption);
+            dlg.Owner = owner;
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -202,7 +215,11 @@ namespace MessageBoxUtilities
         //     is clicked by the user.
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button);
+            dlg.Owner = owner;
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -232,7 +249,11 @@ namespace MessageBoxUtilities
         //     is clicked by the user.
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button,icon);
+            dlg.Owner = owner;
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
         //
@@ -265,9 +286,13 @@ namespace MessageBoxUtilities
         // Returns:
         //     A System.Windows.MessageBoxResult value that specifies which message box button
         //     is clicked by the user.
-        public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultResult)
+        public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultButton)
         {
-            throw null;
+            MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
+            dlg.Owner = owner;
+            var res = dlg.ShowDialog();
+
+            return dlg.Result;
         }
 
     }
