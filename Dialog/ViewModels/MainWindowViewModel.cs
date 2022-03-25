@@ -145,7 +145,7 @@ namespace Dialog.ViewModels
 
         private void Button2Click()
         {
-            var res = _messageBox.Show("An Emergency Message should appear hereand is very long", "Emergency caption of the dialog", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Warning, MessageBoxServiceResult.Yes);
+            var res = _messageBox.Show("An Warning Message should appear here and is very long", "Warning caption of the dialog", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Warning, MessageBoxServiceResult.Yes);
             DialogResult = res.ToString();
         }
 
