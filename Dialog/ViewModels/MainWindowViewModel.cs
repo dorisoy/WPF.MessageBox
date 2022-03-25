@@ -16,6 +16,7 @@ namespace Dialog.ViewModels
         public DelegateCommand Button3Command { get; private set; }
         public DelegateCommand Button4Command { get; private set; }
         public DelegateCommand Button5Command { get; private set; }
+        public DelegateCommand ComplexPathCommand { get; private set; }
 
         private string _dialogResult;
         public string DialogResult { get { return _dialogResult; } private set { SetProperty(ref _dialogResult, value); } }
@@ -33,6 +34,95 @@ namespace Dialog.ViewModels
             Button3Command = new DelegateCommand(Button3Click);
             Button4Command = new DelegateCommand(Button4Click);
             Button5Command = new DelegateCommand(Button5Click);
+            ComplexPathCommand = new DelegateCommand(ExecuteComplexPath);
+        }
+
+        private void ExecuteComplexPath()
+        {
+            var path = ComplexPathWithMessageBoxes();
+            _messageBox.Show($"The Path returned {path}");
+        }
+
+        /// <summary>
+        /// A logical path that involves multiple decisions triggered by MessageBoxes
+        /// Test for code coverage (all paths are tested)
+        /// </summary>
+        /// <returns>true for valid path, false for invalid</returns>
+        public int ComplexPathWithMessageBoxes()
+        {
+            Console.WriteLine("Start");
+            var res = _messageBox.Show("Please Answer", "MessageBox 1", MessageBoxServiceButton.YesNo);
+            Console.WriteLine($"User Clicked {res}");
+            if(res == MessageBoxServiceResult.Yes)
+            {
+                // Yes
+                res = _messageBox.Show("Please Answer", "MessageBox 2", MessageBoxServiceButton.Ok);
+                Console.WriteLine("OK");
+                Console.WriteLine($"User Clicked {res}");
+                res = _messageBox.Show("Let's go", "For Sure", MessageBoxServiceButton.YesNo);
+                Console.WriteLine($"User Clicked {res}");
+                if (res== MessageBoxServiceResult.Yes)
+                {
+                    Console.WriteLine("Yes For sure");
+                    res = _messageBox.Show("Let's go", "MessageBox 6", MessageBoxServiceButton.OkCancel);
+                    Console.WriteLine($"User Clicked {res}");
+                    if( res== MessageBoxServiceResult.OK)
+                    {
+                        return 1;
+                    }
+                    else { return 2; }
+                }
+                else
+                {
+                    res = _messageBox.Show("Let's go", "MessageBox 7", MessageBoxServiceButton.Ok);
+                    Console.WriteLine($"User Clicked {res}");
+                    return 3;
+                }
+            }
+            else
+            {
+                res = _messageBox.Show("Let's go", "MessageBox 3", MessageBoxServiceButton.OkCancel);
+                Console.WriteLine($"User Clicked {res}");
+                if(res == MessageBoxServiceResult.Cancel)
+                {
+                    return 9;
+                }
+                else
+                {
+                    res = _messageBox.Show("Let's go", "MessageBox 5", MessageBoxServiceButton.OkCancel);
+                    Console.WriteLine($"User Clicked {res}");
+                    if(res== MessageBoxServiceResult.Cancel)
+                    {
+                        res = _messageBox.Show("Let's go", "MessageBox 8", MessageBoxServiceButton.YesNo);
+                        Console.WriteLine($"User Clicked {res}");
+                        if(res== MessageBoxServiceResult.Yes)
+                        {
+                            return 4;
+                        }else
+                        {
+                            return 5;
+                        }
+
+                    }
+                    else
+                    {
+                        res = _messageBox.Show("Let's go", "MessageBox 9", MessageBoxServiceButton.YesNoCancel);
+                        Console.WriteLine($"User Clicked {res}");
+                        switch(res)
+                        {
+                            case MessageBoxServiceResult.Yes:
+                                return 6;
+                            case MessageBoxServiceResult.No:    
+                                return 7;
+                            case MessageBoxServiceResult.Cancel:
+                            default:
+                                return 8;
+                        }    
+                    }
+                }
+
+            }
+
         }
 
         private void Button5Click()

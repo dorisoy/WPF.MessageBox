@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dialog", "Dialog\Dialog.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBoxUtilities", "MessageBoxUtilities\MessageBoxUtilities.csproj", "{8AE21051-B9CB-4C6E-BAE7-2D8480F3514D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessageBoxUnitTest", "MessageBoxUnitTest\MessageBoxUnitTest.csproj", "{8A3BE6ED-1C27-4059-B8A5-14821ACBC184}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBoxUnitTests", "MessageBoxUnitTests\MessageBoxUnitTests.csproj", "{EF377BB2-B30C-4919-A60C-E7A6276A1518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{8AE21051-B9CB-4C6E-BAE7-2D8480F3514D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AE21051-B9CB-4C6E-BAE7-2D8480F3514D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AE21051-B9CB-4C6E-BAE7-2D8480F3514D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A3BE6ED-1C27-4059-B8A5-14821ACBC184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A3BE6ED-1C27-4059-B8A5-14821ACBC184}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A3BE6ED-1C27-4059-B8A5-14821ACBC184}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A3BE6ED-1C27-4059-B8A5-14821ACBC184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF377BB2-B30C-4919-A60C-E7A6276A1518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF377BB2-B30C-4919-A60C-E7A6276A1518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF377BB2-B30C-4919-A60C-E7A6276A1518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF377BB2-B30C-4919-A60C-E7A6276A1518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

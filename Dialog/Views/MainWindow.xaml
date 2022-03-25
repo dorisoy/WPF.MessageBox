@@ -19,6 +19,7 @@
         <Button Content="Warning with Yes-No" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button2Command}" />
         <Button Content="Error with Yes-No-Cancel" HorizontalAlignment="Left" Margin="29,224,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button1Command}" />
         <TextBox HorizontalAlignment="Left" Margin="29,249,0,0" TextWrapping="Wrap" Text="{Binding DialogResult, Mode=OneWay}" VerticalAlignment="Top" Width="192"/>
+        <Button Content="Complex Path" HorizontalAlignment="Left" Margin="242,124,0,0" VerticalAlignment="Top" Width="192" Command="{Binding ComplexPathCommand}"/>
 
     </Grid>
 </Window>
