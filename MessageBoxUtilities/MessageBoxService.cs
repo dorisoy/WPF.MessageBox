@@ -9,156 +9,98 @@ namespace MessageBoxUtilities
         {
 
         }
-        //
-        // Summary:
-        //     Displays a message box that has a message and that returns a result.
-        //
-        // Parameters:
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        // Returns:
-        //     A System.Windows.MessageBoxResult value that specifies which message box button
-        //     is clicked by the user.
+        /// <summary>
+        /// Display a simple MessageBox with a OK button
+        /// </summary>
+        /// <param name="messageBoxText">Message to Display</param>
+        /// <returns>MessageBoxServiceResult.OK</returns>
         public MessageBoxServiceResult Show(string messageBoxText)
         {
             return Show(messageBoxText, "");
 
         }
 
-        //
-        // Summary:
-        //     Displays a message box that has a message and title bar caption; and that returns
-        //     a result.
-        //
-        // Parameters:
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        //   caption:
-        //     A System.String that specifies the title bar caption to display.
-        //
-        // Returns:
-        //     A System.Windows.MessageBoxResult value that specifies which message box button
-        //     is clicked by the user.
+
+        /// <summary>
+        /// Display a simple MessageBox with a OK button
+        /// </summary>
+        /// <param name="messageBoxText">Message to Display</param>
+        /// <param name="caption">Caption in the title Bar</param>
+        /// <returns>MessageBoxServiceResult.OK</returns>
         public MessageBoxServiceResult Show(string messageBoxText, string caption)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption);
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();
             return MessageBoxServiceResult.OK;
         }
 
-        //
-        // Summary:
-        //     Displays a message box that has a message, title bar caption, and button; and
-        //     that returns a result.
-        //
-        // Parameters:
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        //   caption:
-        //     A System.String that specifies the title bar caption to display.
-        //
-        //   button:
-        //     A System.Windows.MessageBoxButton value that specifies which button or buttons
-        //     to display.
-        //
-        // Returns:
-        //     A  value that specifies which message box button
-        //     is clicked by the user.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageBoxText">Message to Display</param>
+        /// <param name="caption">Caption in the title Bar</param>
+        /// <param name="button">MessageBoxServiceButton OK, OKCancel, YesNo, YesNoCancel</param>
+        /// <returns>Which button was clicked</returns>
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button);
-            var res = dlg.ShowDialog();
-            
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            var res = dlg.ShowDialog();    
             return dlg.Result;
         }
 
-        //
-        // Summary:
-        //     Displays a message box that has a message, title bar caption, button, and icon;
-        //     and that returns a result.
-        //
-        // Parameters:
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        //   caption:
-        //     A System.String that specifies the title bar caption to display.
-        //
-        //   button:
-        //     A System.Windows.MessageBoxButton value that specifies which button or buttons
-        //     to display.
-        //
-        //   icon:
-        //     A System.Windows.MessageBoxImage value that specifies the icon to display.
-        //
-        // Returns:
-        //     A MessageBoxResult value that specifies which message box button
-        //     is clicked by the user.
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="messageBoxText">Message to Display</param>
+        /// <param name="caption">Caption in the title Bar</param>
+        /// <param name="button">MessageBoxServiceButton OK, OKCancel, YesNo, YesNoCancel</param>
+        /// <param name="icon">Dialog Left side image: None, Error, Warning, Info, Question</param>
+        /// <returns>Which button was clicked</returns>
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button,icon);
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();
-
             return dlg.Result;
         }
 
-        //
-        // Summary:
-        //     Displays a message box that has a message, title bar caption, button, and icon;
-        //     and that accepts a default message box result, complies with the specified options,
-        //     and returns a result.
-        //
-        // Parameters:
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        //   caption:
-        //     A System.String that specifies the title bar caption to display.
-        //
-        //   button:
-        //     A System.Windows.MessageBoxButton value that specifies which button or buttons
-        //     to display.
-        //
-        //   icon:
-        //     A System.Windows.MessageBoxImage value that specifies the icon to display.
-        //
-        //   defaultResult:
-        //     A System.Windows.MessageBoxResult value that specifies the default result of
-        //     the message box.
-        //
-        // Returns:
-        //     A System.Windows.MessageBoxResult value that specifies which message box button
-        //     is clicked by the user.
+
+        /// <summary>
+        ///    Displays a message box that has a message, title bar caption, button, and icon;
+        ///     and that accepts a default message box result, complies with the specified options,
+        ///     and returns a result.
+        /// </summary>
+        /// <param name="messageBoxText"></param>
+        /// <param name="caption"></param>
+        /// <param name="button"></param>
+        /// <param name="icon"></param>
+        /// <param name="defaultButton"></param>
+        /// <returns></returns>
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultButton)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();
 
             return dlg.Result;
         }
 
-        //
-        // Summary:
-        //     Displays a message box in front of the specified window. The message box displays
-        //     a message and returns a result.
-        //
-        // Parameters:
-        //   owner:
-        //     A System.Windows.Window that represents the owner window of the message box.
-        //
-        //   messageBoxText:
-        //     A System.String that specifies the text to display.
-        //
-        // Returns:
-        //     A System.Windows.MessageBoxResult value that specifies which message box button
-        //     is clicked by the user.
+
+
+        /// <summary>
+        /// Displays a message box in front of the specified window. The message box displays
+        /// a message and returns a result.
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <param name="messageBoxText"></param>
+        /// <returns>A value that specifies which message box button is clicked by the user.</returns>
         public MessageBoxServiceResult Show(Window owner, string messageBoxText)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText);
             dlg.Owner = owner;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
             return dlg.Result;
@@ -186,6 +128,7 @@ namespace MessageBoxUtilities
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption);
             dlg.Owner = owner;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
             return dlg.Result;
@@ -217,6 +160,7 @@ namespace MessageBoxUtilities
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button);
             dlg.Owner = owner;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
             return dlg.Result;
@@ -251,6 +195,7 @@ namespace MessageBoxUtilities
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button,icon);
             dlg.Owner = owner;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
             return dlg.Result;
@@ -290,6 +235,7 @@ namespace MessageBoxUtilities
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
             dlg.Owner = owner;
+            dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
             return dlg.Result;

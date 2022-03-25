@@ -4,130 +4,77 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Plate Holder Closing" 
+        d:Title="Warning!" 
         Height="Auto" Width="Auto" 
-        MinHeight="200" MaxWidth="400" 
-        MaxHeight="200" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" ResizeMode="NoResize" WindowState="Normal" Icon="/Icon1.ico">
+        MinHeight="200" MaxWidth="460" 
+        MaxHeight="200" ShowInTaskbar="False" 
+        WindowStyle="ThreeDBorderWindow" 
+        ResizeMode="NoResize" 
+        WindowState="Normal" 
+        Icon="/Icon1.ico">
     <Window.Resources>
-        <!-- Nexcelom Brushes -->
-        <Color x:Key="brownish-orange">#FFD95427</Color>
-        <Color x:Key="bright-orange">#FFFF5F2E</Color>
-        <Color x:Key="Dark-Orange">#FFB5270B</Color>
-        <Color x:Key="Disabled-Orange">#FFF2E2DD</Color>
-        <Color x:Key="dark-blue-grey-two">#1D2C4E</Color>
-        <Color x:Key="pale-grey">#FFDFECEC</Color>
-        <Color x:Key="lite-blue">#FFD2E9FF</Color>
-        <Color x:Key="sea-blue">#FF549EE8</Color>
-        <Color x:Key="Focus-Blue">#FF99D6FF</Color>
-        <Color x:Key="Active-Blue">#FF1C6DA3</Color>
-        <Color x:Key="Disabled-Blue">#FFE4ECEF</Color>
-        <Color x:Key="steel-grey">#FF808285</Color>
-        <Color x:Key="warm-grey">#FF9E9D9D</Color>
-        <Color x:Key="Medium-Grey">#FFDBDBDB</Color>
-        <Color x:Key="lite-grey">#FFDDDDDD</Color>
-        <Color x:Key="very-lite-grey">#FFF2F2F2</Color>
-        <Color x:Key="white">#FFFFFFFF</Color>
-        <Color x:Key="Warm-Yellow">#FFFFCD34</Color>
-        <Color x:Key="Acquired-Green">#FF356732</Color>
-        <Color x:Key="Counted-Blue">#FF243E90</Color>
 
-        <SolidColorBrush x:Key="brownish-orangeBrush" 
-                     Color="{StaticResource brownish-orange}" />
-        <SolidColorBrush x:Key="dark-orangeBrush" 
-                     Color="{StaticResource Dark-Orange}" />
-        <SolidColorBrush x:Key="dark-blue-grey-twoBrush" 
-                     Color="{StaticResource dark-blue-grey-two}" />
-        <SolidColorBrush x:Key="pale-greyBrush" 
-                     Color="{StaticResource pale-grey}" />
-        <SolidColorBrush x:Key="sea-blueBrush" 
-                     Color="{StaticResource sea-blue}" />
-        <SolidColorBrush x:Key="lite-blueBrush" 
-                     Color="{StaticResource lite-blue}" />
-        <SolidColorBrush x:Key="steel-greyBrush" 
-                     Color="{StaticResource steel-grey}" />
-        <SolidColorBrush x:Key="warm-greyBrush" 
-                     Color="{StaticResource warm-grey}" />
-        <SolidColorBrush x:Key="Medium-GreyBrush" 
-                     Color="{StaticResource Medium-Grey}" />
-        <SolidColorBrush x:Key="whiteBrush" 
-                     Color="{StaticResource white}" />
-        <SolidColorBrush x:Key="PanelBackgroundBrush"
-                     Color="{StaticResource very-lite-grey}"/>
+        <Color x:Key="buttonBackgroundColor">#FFD95427</Color>
+        <Color x:Key="buttonBorderColor">#983a1a</Color>
+        <Color x:Key="buttonSelectedBackgroundColor">#FFB5270B</Color>
+        <Color x:Key="buttonSelectedBorderColor">#681606</Color>
+        <Color x:Key="buttonTextColor">#ffffff</Color>
 
-        <SolidColorBrush x:Key="NexcelomBlueBrush" 
-                     Color="{DynamicResource dark-blue-grey-two}" />
-        <SolidColorBrush x:Key="NexcelomRedBrush" 
-                     Color="#FFD9531E" />
-
-        <SolidColorBrush x:Key="Warm-YellowBrush" 
-                     Color="{StaticResource Warm-Yellow}" />
-        <SolidColorBrush x:Key="Acquired-GreenBrush" 
-                     Color="{StaticResource Acquired-Green}" />
-        <SolidColorBrush x:Key="Counted-BlueBrush" 
-                     Color="{StaticResource Counted-Blue}" />
-
-        <SolidColorBrush x:Key="MainActionMouseOverBrush" 
-                     Color="{StaticResource Dark-Orange}" />
-
-        <SolidColorBrush x:Key="MainActionActiveBrush" 
-                     Color="{StaticResource bright-orange}" />
+        <Color x:Key="infoIconColor">#3140f7</Color>
+        <Color x:Key="questionIconColor">#3140f7</Color>
+        <Color x:Key="warningIconColor">#ff7e2c</Color>
+        <Color x:Key="errorIconColor">#960202</Color>
 
 
+        <Color x:Key="messageTextColor">#000000</Color>
+
+        <Color x:Key="dialogMessageAreaColor">#d6ecff</Color>
+        <!--<Color x:Key="dialogMessageAreaColor">#fffee3</Color>-->
+        <SolidColorBrush x:Key="dialogMessageAreaBrush" 
+                     Color="{StaticResource dialogMessageAreaColor}" />
+
+        <SolidColorBrush x:Key="infoIconBrush" 
+                     Color="{StaticResource infoIconColor}" />
+        <SolidColorBrush x:Key="questionIconBrush" 
+                     Color="{StaticResource questionIconColor}" />
+        <SolidColorBrush x:Key="warningIconBrush" 
+                     Color="{StaticResource warningIconColor}" />
+        <SolidColorBrush x:Key="errorIconBrush" 
+                     Color="{StaticResource errorIconColor}" />
+
+
+        <SolidColorBrush x:Key="buttonBackgroundBrush" 
+                     Color="{StaticResource buttonBackgroundColor}" />
+        <SolidColorBrush x:Key="buttonBorderBrush" 
+                     Color="{StaticResource buttonBorderColor}" />
+        <SolidColorBrush x:Key="buttonSelectedBackgroundBrush" 
+                     Color="{StaticResource buttonSelectedBackgroundColor}" />
+        <SolidColorBrush x:Key="buttonSelectedBorderBrush" 
+                     Color="{StaticResource buttonSelectedBorderColor}" />
+        <SolidColorBrush x:Key="buttonTextBrush" 
+                     Color="{StaticResource buttonTextColor}" />
+
+        <SolidColorBrush x:Key="messageTextBrush" 
+                     Color="{StaticResource messageTextColor}" />
+
+
+        <!--MouseOver, Pressed, Disabled, Default-->
         
-        
-        <!-- Hardware Status Brushes -->
-        <SolidColorBrush x:Key="ErrorsBrush" Color="DarkRed"/>
-        <SolidColorBrush x:Key="NoErrorsBrush" Color="DarkGreen"/>
-        <SolidColorBrush x:Key="SimulatedBrush" Color="{StaticResource sea-blue}"/>
-        <Style x:Key="SimpleButton" TargetType="{x:Type Button}" BasedOn="{x:Null}">
-            <Setter Property="FocusVisualStyle" Value="{DynamicResource SimpleButtonFocusVisual}"/>
-            <Setter Property="Background" Value="{StaticResource brownish-orangeBrush}"/>
-            <Setter Property="Margin" Value="5,5,5,5"/>
-            <Setter Property="MinHeight" Value="20"/>
-            <Setter Property="MinWidth" Value="71"/>
-            <Setter Property="Padding" Value="7"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-
-                        <!-- We use Grid as a root because it is easy to add more elements to customize the button -->
-                        <Grid x:Name="Grid">
-                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3" Padding="{TemplateBinding Padding}"/>
-
-                            <!-- Content Presenter is where the text content etc is placed by the control -->
-                            <!-- The bindings are useful so that the control can be parameterized without editing the template -->
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True"/>
-                        </Grid>
-
-                        <!--Each state sets a brush on the Border in the template -->
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" Value="{DynamicResource DefaultedBorderBrush}" TargetName="Border"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="true"/>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
-                                <Setter Property="BorderBrush" Value="{DynamicResource DisabledBorderBrush}" TargetName="Border"/>
-                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="MainActionButton" TargetType="{x:Type Button}" BasedOn="{StaticResource SimpleButton}">
-            <Setter Property="Background" Value="{DynamicResource MainActionNormalBrush}"/>
+        <Style x:Key="MainActionButton" TargetType="{x:Type Button}" >
+            <Setter Property="Background" Value="{DynamicResource buttonBackgroundBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource buttonBorderBrush}"/>
+            <Setter Property="BorderThickness" Value="2"/>
             <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Padding" Value="0" />
+            <Setter Property="Foreground" Value="{StaticResource buttonTextBrush}"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="Padding" Value="2" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
 
                         <!-- We use Grid as a root because it is easy to add more elements to customize the button -->
                         <Grid x:Name="Grid">
-                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="7" Padding="{TemplateBinding Padding}"/>
+                            <Border x:Name="Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="7" Padding="{TemplateBinding Padding}"/>
 
                             <!-- Content Presenter is where the text content etc is placed by the control -->
                             <!-- The bindings are useful so that the control can be parameterized without editing the template -->
@@ -137,17 +84,16 @@
                         <!--Each state sets a brush on the Border in the template -->
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsKeyboardFocused" Value="true">
-                                <Setter Property="BorderBrush" Value="{DynamicResource MainActionMouseOverBrush}" TargetName="Border"/>
+                                <Setter Property="BorderBrush" Value="{DynamicResource buttonSelectedBorderBrush}" TargetName="Border"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="Background" Value="{DynamicResource MainActionMouseOverBrush}" TargetName="Border"/>
+                                <Setter Property="Background" Value="{DynamicResource buttonSelectedBackgroundBrush}" TargetName="Border"/>
                             </Trigger>
                             <Trigger Property="IsPressed" Value="true">
-                                <Setter Property="Background" Value="{DynamicResource MainActionActiveBrush}" TargetName="Border"/>
+                                <Setter Property="Background" Value="{DynamicResource buttonSelectedBackgroundBrush}" TargetName="Border"/>
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="false">
-                                <Setter Property="Background" Value="{DynamicResource MainActionDisabledBrush}" TargetName="Border"/>
-                                <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                            <Trigger Property="IsDefault" Value="True">
+                                <Setter Property="BorderThickness" Value="3" TargetName="Border"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -159,23 +105,23 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="92"/>
-            <ColumnDefinition MaxWidth="311"/>
+            <ColumnDefinition MaxWidth="360"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" MinHeight="100"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Rectangle Fill="#FFD6ECFF" Grid.ColumnSpan="2" Margin="0,0,0,0" />
+        <Rectangle Fill="{StaticResource dialogMessageAreaBrush}" Grid.ColumnSpan="2" Margin="0,0,0,0" />
         <Grid Grid.ColumnSpan="2" Margin="16,0,8,0"  >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width ="Auto" />
                 <ColumnDefinition Width ="*" />
             </Grid.ColumnDefinitions>
-            <Path x:Name="InformationIcon" Visibility="Collapsed" Data="M16.800049,11.699997C16.100037,11.699997 15.300049,12 14.300049,12.5 13.400024,13 12.400024,13.900002 11.300049,15.099998L10.900024,15.5 12.400024,16.699997 12.700012,16.400002C13.900024,15.300003 14.300049,15 14.400024,14.900002 12.900024,20.199997 12.100037,23.400002 12.100037,24.800003 12.100037,25.300003 12.300049,25.800003 12.600037,26.099998 12.900024,26.400002 13.400024,26.599998 13.900024,26.599998 14.400024,26.599998 15,26.400002 15.800049,26 16.5,25.599998 17.600037,24.699997 19,23.300003L19.400024,22.900002 18,21.5 17.600037,21.800003C16.300049,23 15.700012,23.400002 15.600037,23.599998 15.600037,23 15.900024,21.5 17.200012,17.099998 18.200012,13.599998 18.200012,13.300003 18.200012,13.099998 18.200012,12.699997 18,12.300003 17.700012,12.099998 17.600037,11.800003 17.200012,11.699997 16.800049,11.699997z M16.700012,5.5999985C15.5,5.5999985 14.5,6.5999985 14.5,7.8000031 14.5,9 15.5,10 16.700012,10 17.900024,10 18.900024,9 18.900024,7.8000031 18.900024,6.5 17.900024,5.5999985 16.700012,5.5999985z M16,0C24.800049,0 32,7.1999969 32,16 32,24.800003 24.800049,32 16,32 7.2000122,32 0,24.800003 0,16 0,7.1999969 7.2000122,0 16,0z" Stretch="Uniform" Fill="#FF3140F7" Width="68" Height="68" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Path x:Name="WarningIcon"     Visibility="Collapsed" Data="M14.474757,20.894995L14.474757,23.562994 17.524841,23.562994 17.526794,23.562994 17.526794,20.894995z M14.950836,8.2090167L14.474757,18.709019 17.524841,18.709019 17.044855,8.2090167z M15.998822,0C16.924858,1.8512219E-07,17.780824,0.48999053,18.248848,1.2929997L31.644996,24.237005C32.115951,25.036993 32.115951,26.032995 31.659034,26.847021 31.188938,27.653023 30.332971,28.150001 29.395948,28.150001L2.603649,28.150001C1.6735847,28.150001 0.80968323,27.653023 0.34556663,26.847021 -0.11732932,26.032995 -0.11635275,25.036993 0.35557639,24.237005L13.748796,1.2929997C14.218773,0.49301177,15.072786,1.8512219E-07,15.998822,0z" Stretch="Uniform" Fill="#FFC07819" Width="68" Height="68" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Path x:Name="CriticalIcon"    Visibility="Collapsed" Data="M9.9000245,6.000003L6.0000001,9.8999988 12.100037,16.000007 6.0000001,22.100002 9.9000245,25.999997 16,19.900018 22.100037,25.999997 26,22.100002 19.900024,16.000007 26,9.8999988 22.100037,6.000003 16,12.099997z M16,0C24.799988,0 32,7.2000005 32,16.000007 32,24.800016 24.799988,32.000001 16,32.000001 7.2000123,32.000001 8.3946347E-08,24.800016 0,16.000007 8.3946347E-08,7.2000005 7.2000123,0 16,0z" Stretch="Uniform" Fill="#FF960202" Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" />
-            <Path x:Name="QuestionIcon"     Visibility="Collapsed" d:Visibility="Visible" Data="M14.580002,23.394012L14.580002,26.235001 17.18399,26.235001 17.18399,23.394012z M16.117996,5.7660065C14.539993,5.7660065 13.278992,6.2390137 12.332993,7.1880035 10.991989,8.5250092 10.320999,10.223007 10.320999,12.27301L13.043991,12.27301C13.043991,10.695007 13.437988,9.5130005 14.22699,8.7230072 14.697998,8.25 15.289001,8.0130005 16,8.0130005 16.867996,8.0130005 17.537003,8.25 18.009995,8.7230072 18.561996,9.2750092 18.838989,10.106003 18.838989,11.207001 18.838989,12.077011 18.522995,12.827011 17.89299,13.455002 16.789001,14.561005 16.039001,15.429001 15.644989,16.061005 15.090988,16.92601 14.817001,18.228012 14.817001,19.964005L16.947998,19.964005C16.947998,18.545013 17.302002,17.478012 18.009995,16.767014 18.955994,15.824005 19.705994,15.074005 20.259995,14.522003 21.205002,13.574005 21.679001,12.432007 21.679001,11.090012 21.679001,9.5130005 21.166,8.2109985 20.14299,7.1880035 19.194992,6.2390137 17.853989,5.7660065 16.117996,5.7660065z M16,0C24.819992,0 32,7.178009 32,16.001007 32,24.822006 24.819992,32 16,32 7.1759949,32 0,24.822006 0,16.001007 0,7.178009 7.1759949,0 16,0z" Stretch="Uniform" Fill="#FF3140F7" Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" />
-            <TextBlock x:Name="MessageText" Text="Some Other Warning Alert with different button combination" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" FontWeight="Bold" FontSize="16" TextWrapping="Wrap" Margin="8,0,16,0" TextAlignment="Center"/>
+            <Path x:Name="InformationIcon" Visibility="Collapsed" Data="M16.800049,11.699997C16.100037,11.699997 15.300049,12 14.300049,12.5 13.400024,13 12.400024,13.900002 11.300049,15.099998L10.900024,15.5 12.400024,16.699997 12.700012,16.400002C13.900024,15.300003 14.300049,15 14.400024,14.900002 12.900024,20.199997 12.100037,23.400002 12.100037,24.800003 12.100037,25.300003 12.300049,25.800003 12.600037,26.099998 12.900024,26.400002 13.400024,26.599998 13.900024,26.599998 14.400024,26.599998 15,26.400002 15.800049,26 16.5,25.599998 17.600037,24.699997 19,23.300003L19.400024,22.900002 18,21.5 17.600037,21.800003C16.300049,23 15.700012,23.400002 15.600037,23.599998 15.600037,23 15.900024,21.5 17.200012,17.099998 18.200012,13.599998 18.200012,13.300003 18.200012,13.099998 18.200012,12.699997 18,12.300003 17.700012,12.099998 17.600037,11.800003 17.200012,11.699997 16.800049,11.699997z M16.700012,5.5999985C15.5,5.5999985 14.5,6.5999985 14.5,7.8000031 14.5,9 15.5,10 16.700012,10 17.900024,10 18.900024,9 18.900024,7.8000031 18.900024,6.5 17.900024,5.5999985 16.700012,5.5999985z M16,0C24.800049,0 32,7.1999969 32,16 32,24.800003 24.800049,32 16,32 7.2000122,32 0,24.800003 0,16 0,7.1999969 7.2000122,0 16,0z" Stretch="Uniform" Fill="{StaticResource infoIconBrush}" Width="68" Height="68" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Path x:Name="WarningIcon"     Visibility="Collapsed" d:Visibility="Visible" Data="M14.474757,20.894995L14.474757,23.562994 17.524841,23.562994 17.526794,23.562994 17.526794,20.894995z M14.950836,8.2090167L14.474757,18.709019 17.524841,18.709019 17.044855,8.2090167z M15.998822,0C16.924858,1.8512219E-07,17.780824,0.48999053,18.248848,1.2929997L31.644996,24.237005C32.115951,25.036993 32.115951,26.032995 31.659034,26.847021 31.188938,27.653023 30.332971,28.150001 29.395948,28.150001L2.603649,28.150001C1.6735847,28.150001 0.80968323,27.653023 0.34556663,26.847021 -0.11732932,26.032995 -0.11635275,25.036993 0.35557639,24.237005L13.748796,1.2929997C14.218773,0.49301177,15.072786,1.8512219E-07,15.998822,0z" Stretch="Uniform" Fill="{StaticResource warningIconBrush}" Width="68" Height="68" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Path x:Name="CriticalIcon"    Visibility="Collapsed" Data="M9.9000245,6.000003L6.0000001,9.8999988 12.100037,16.000007 6.0000001,22.100002 9.9000245,25.999997 16,19.900018 22.100037,25.999997 26,22.100002 19.900024,16.000007 26,9.8999988 22.100037,6.000003 16,12.099997z M16,0C24.799988,0 32,7.2000005 32,16.000007 32,24.800016 24.799988,32.000001 16,32.000001 7.2000123,32.000001 8.3946347E-08,24.800016 0,16.000007 8.3946347E-08,7.2000005 7.2000123,0 16,0z" Stretch="Uniform" Fill="{StaticResource errorIconBrush}" Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" />
+            <Path x:Name="QuestionIcon"     Visibility="Collapsed"  Data="M14.580002,23.394012L14.580002,26.235001 17.18399,26.235001 17.18399,23.394012z M16.117996,5.7660065C14.539993,5.7660065 13.278992,6.2390137 12.332993,7.1880035 10.991989,8.5250092 10.320999,10.223007 10.320999,12.27301L13.043991,12.27301C13.043991,10.695007 13.437988,9.5130005 14.22699,8.7230072 14.697998,8.25 15.289001,8.0130005 16,8.0130005 16.867996,8.0130005 17.537003,8.25 18.009995,8.7230072 18.561996,9.2750092 18.838989,10.106003 18.838989,11.207001 18.838989,12.077011 18.522995,12.827011 17.89299,13.455002 16.789001,14.561005 16.039001,15.429001 15.644989,16.061005 15.090988,16.92601 14.817001,18.228012 14.817001,19.964005L16.947998,19.964005C16.947998,18.545013 17.302002,17.478012 18.009995,16.767014 18.955994,15.824005 19.705994,15.074005 20.259995,14.522003 21.205002,13.574005 21.679001,12.432007 21.679001,11.090012 21.679001,9.5130005 21.166,8.2109985 20.14299,7.1880035 19.194992,6.2390137 17.853989,5.7660065 16.117996,5.7660065z M16,0C24.819992,0 32,7.178009 32,16.001007 32,24.822006 24.819992,32 16,32 7.1759949,32 0,24.822006 0,16.001007 0,7.178009 7.1759949,0 16,0z" Stretch="Uniform" Fill="{StaticResource questionIconBrush}" Width="64" Height="64" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" />
+            <TextBlock x:Name="MessageText" Text="Some Other Warning Alert with different button combination" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" FontWeight="Bold" FontSize="16" TextWrapping="Wrap" Margin="8,0,16,0" Foreground="{StaticResource messageTextBrush}"  TextAlignment="Center"/>
         </Grid>
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" >
