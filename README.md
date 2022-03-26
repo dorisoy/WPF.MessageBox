@@ -10,5 +10,7 @@ Include samples and an Example to unit test code involving a complex path with m
 
 ![image](https://user-images.githubusercontent.com/2603287/160229418-fa5083a9-979e-4df9-9399-172b241c9665.png)
 
+This shows a function including multiple  decisions triggered by user input.
+The Unit test module shows how to unit test the function for full code coverage.
 
 ![Complex Path](https://github.com/pierre01/MessageBox/blob/development/MessageBoxPathToTest.jpg)
