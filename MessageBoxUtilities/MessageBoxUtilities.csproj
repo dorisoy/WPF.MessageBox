@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="8.1.97" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="MessageBoxDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

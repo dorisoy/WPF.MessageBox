@@ -23,9 +23,6 @@ namespace Dialog
             containerRegistry.Register<IMessageBoxService, MessageBoxService>();
 
         }
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        {
-            moduleCatalog.AddModule<MessageBoxServiceModule>();
-        }
+
     }
 }

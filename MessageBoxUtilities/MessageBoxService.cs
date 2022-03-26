@@ -1,5 +1,4 @@
-﻿using Prism.Services.Dialogs;
-using System.Windows;
+﻿using System.Windows;
 
 namespace MessageBoxUtilities
 {
