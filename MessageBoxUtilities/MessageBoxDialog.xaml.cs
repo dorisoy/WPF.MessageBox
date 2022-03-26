@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace MessageBoxUtilities
     /// </summary>
     public partial class MessageBoxDialog : Window
     {
+
         private MessageBoxServiceResult _result = MessageBoxServiceResult.None;
         public MessageBoxServiceResult Result { get => _result; }
 
@@ -56,6 +58,7 @@ namespace MessageBoxUtilities
                 case MessageBoxServiceButton.YesNo:
                     YesButton.Visibility = Visibility.Visible;
                     NoButton.Visibility = Visibility.Visible;
+                    NoButton.IsCancel= true;
                     break;
                 case MessageBoxServiceButton.YesNoCancel:
                     YesButton.Visibility= Visibility.Visible;
@@ -83,6 +86,11 @@ namespace MessageBoxUtilities
                     OkButton.IsDefault = true;
                     break;           
             }
+            if (Application.Current.MainWindow != null)
+            {
+                Owner = Application.Current.MainWindow;
+                WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
         }
 
         private void OKClicked(object sender, RoutedEventArgs e)
@@ -107,6 +115,42 @@ namespace MessageBoxUtilities
         {
             _result=MessageBoxServiceResult.No;
             DialogResult = true;
+        }
+        /// <summary>
+        /// MessageBox is closed - Handle cases when the close button is clicked and doesn't register as cancel
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+            if(DialogResult!=true) // No button Registered
+            {
+                // Handles when the user click the close button (right top corner)
+
+                // If the cancel Button is visible on the MessageBox the close button should have the same effect
+                if(_result==MessageBoxServiceResult.None && (CancelButton.Visibility == Visibility.Visible))
+                {
+                    _result = MessageBoxServiceResult.Cancel;
+                }
+                else
+                {
+                    // If a Button is assigned to canceling the form 
+                    // Set the result to that button
+                    if (_result == MessageBoxServiceResult.None)
+                    {
+                        if (YesButton.IsCancel)
+                        {
+                            _result = MessageBoxServiceResult.Yes;
+                        }
+                        if (NoButton.IsCancel)
+                        {
+                            _result = MessageBoxServiceResult.No;
+                        }
+                    }
+                }
+
+
+            }
         }
     }
     public enum MessageBoxServiceIcon

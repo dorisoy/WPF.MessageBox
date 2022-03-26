@@ -127,31 +127,31 @@ namespace Dialog.ViewModels
 
         private void Button5Click()
         {
-            var res = _messageBox.Show("Just a Message but a very long message that should go over 2 lines long or more, may be");
+            var res = _messageBox.Show("The application is closing, this might take a few seconds");
             DialogResult = res.ToString();
         }
 
         private void Button4Click()
         {
-            var res = _messageBox.Show("A Message should appear here", "Caption of the dialog", MessageBoxServiceButton.OkCancel, MessageBoxServiceIcon.Information);
+            var res = _messageBox.Show("The project has been closed and your Database restored", "Closing", MessageBoxServiceButton.Ok, MessageBoxServiceIcon.Information);
             DialogResult = res.ToString();
         }
 
         private void Button3Click()
         {
-            var res = _messageBox.Show("A Message should appear here", "Caption of the dialog", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Question, MessageBoxServiceResult.No);
+            var res = _messageBox.Show("Hi James, Can I call you Jim?", "Confirm how I call you", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Question, MessageBoxServiceResult.No);
             DialogResult = res.ToString();
         }
 
         private void Button2Click()
         {
-            var res = _messageBox.Show("An Warning Message should appear here and is very long", "Warning caption of the dialog", MessageBoxServiceButton.YesNo, MessageBoxServiceIcon.Warning, MessageBoxServiceResult.Yes);
+            var res = _messageBox.Show("Closing will discard your changes", "Waning closing", MessageBoxServiceButton.OkCancel, MessageBoxServiceIcon.Warning, MessageBoxServiceResult.OK);
             DialogResult = res.ToString();
         }
 
         private void Button1Click()
         {
-            var res = _messageBox.Show("An Emergency Message should appear hereand is very long", "Emergency caption of the dialog", MessageBoxServiceButton.YesNoCancel, MessageBoxServiceIcon.Error, MessageBoxServiceResult.Yes);
+            var res = _messageBox.Show("Press Yes to override data, No to discard your changes... \r\n (Press Cancel to go back to input screen)", "Emergency caption of the dialog", MessageBoxServiceButton.YesNoCancel, MessageBoxServiceIcon.Error, MessageBoxServiceResult.Yes);
             DialogResult = res.ToString();
         }
     }

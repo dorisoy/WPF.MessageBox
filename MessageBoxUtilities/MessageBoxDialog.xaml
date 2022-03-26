@@ -11,7 +11,8 @@
         WindowStyle="ThreeDBorderWindow" 
         ResizeMode="NoResize" 
         WindowState="Normal" 
-        Icon="/Icon1.ico">
+        Icon="/Icon1.ico" 
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
 
         <Color x:Key="buttonBackgroundColor">#FFD95427</Color>

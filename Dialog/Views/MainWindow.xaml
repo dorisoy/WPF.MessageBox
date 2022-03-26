@@ -14,9 +14,9 @@
         <Label Content="Last Name" HorizontalAlignment="Left" Margin="29,76,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="101,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
         <Button Content="Simple OK message" HorizontalAlignment="Left" Margin="29,124,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button5Command}"/>
-        <Button Content="Info with OK-Cancel" HorizontalAlignment="Left" Margin="29,149,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button4Command}" />
+        <Button Content="Info with OK" HorizontalAlignment="Left" Margin="29,149,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button4Command}" />
         <Button Content="Question with Yes-No" HorizontalAlignment="Left" Margin="29,174,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button3Command}" />
-        <Button Content="Warning with Yes-No" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button2Command}" />
+        <Button Content="Warning with Ok-Cancel" HorizontalAlignment="Left" Margin="29,199,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button2Command}" />
         <Button Content="Error with Yes-No-Cancel" HorizontalAlignment="Left" Margin="29,224,0,0" VerticalAlignment="Top" Width="192" Command="{Binding Button1Command}" />
         <TextBox HorizontalAlignment="Left" Margin="29,249,0,0" TextWrapping="Wrap" Text="{Binding DialogResult, Mode=OneWay}" VerticalAlignment="Top" Width="192"/>
         <Button Content="Complex Path" HorizontalAlignment="Left" Margin="242,124,0,0" VerticalAlignment="Top" Width="192" Command="{Binding ComplexPathCommand}"/>

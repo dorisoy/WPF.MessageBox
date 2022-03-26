@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Prism.Services.Dialogs;
+using System.Windows;
 
 namespace MessageBoxUtilities
 {
@@ -30,7 +31,6 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(string messageBoxText, string caption)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption);
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();
             return MessageBoxServiceResult.OK;
         }
@@ -45,7 +45,6 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button);
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();    
             return dlg.Result;
         }
@@ -61,7 +60,6 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button,icon);
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             var res = dlg.ShowDialog();
             return dlg.Result;
         }
@@ -72,16 +70,16 @@ namespace MessageBoxUtilities
         ///     and that accepts a default message box result, complies with the specified options,
         ///     and returns a result.
         /// </summary>
-        /// <param name="messageBoxText"></param>
-        /// <param name="caption"></param>
-        /// <param name="button"></param>
-        /// <param name="icon"></param>
-        /// <param name="defaultButton"></param>
+        /// <param name="messageBoxText">Message to Display</param>
+        /// <param name="caption">Caption in the title Bar</param>
+        /// <param name="button">MessageBoxServiceButton OK, OKCancel, YesNo, YesNoCancel</param>
+        /// <param name="icon">Dialog Left side image: None, Error, Warning, Info, Question</param>
+        /// <param name="defaultButton">Button that will respond to ther enter key and will display as default</param>
         /// <returns></returns>
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultButton)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
-            dlg.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
             var res = dlg.ShowDialog();
 
             return dlg.Result;
@@ -93,13 +91,17 @@ namespace MessageBoxUtilities
         /// Displays a message box in front of the specified window. The message box displays
         /// a message and returns a result.
         /// </summary>
-        /// <param name="owner"></param>
+        /// <param name="owner">The window below the dialog</param>
         /// <param name="messageBoxText"></param>
         /// <returns>A value that specifies which message box button is clicked by the user.</returns>
         public MessageBoxServiceResult Show(Window owner, string messageBoxText)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText);
-            dlg.Owner = owner;
+            if (owner != null)
+            {
+                dlg.Owner = owner;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
@@ -127,7 +129,11 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption);
-            dlg.Owner = owner;
+            if (owner != null)
+            {
+                dlg.Owner = owner;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
@@ -159,7 +165,11 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button);
-            dlg.Owner = owner;
+            if (owner != null)
+            {
+                dlg.Owner = owner;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
@@ -194,7 +204,11 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText,caption,button,icon);
-            dlg.Owner = owner;
+            if (owner != null)
+            {
+                dlg.Owner = owner;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
@@ -234,7 +248,11 @@ namespace MessageBoxUtilities
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultButton)
         {
             MessageBoxDialog dlg = new MessageBoxDialog(messageBoxText, caption, button, icon, defaultButton);
-            dlg.Owner = owner;
+            if (owner != null)
+            {
+                dlg.Owner = owner;
+                dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            }
             dlg.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             var res = dlg.ShowDialog();
 
