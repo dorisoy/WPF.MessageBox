@@ -8,6 +8,10 @@ namespace MessageBoxUnitTests
 {
     public class MainWindowViewModelTest
     {
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_1()
         {
@@ -22,6 +26,10 @@ namespace MessageBoxUnitTests
             Assert.True( ret == 1,"This Path should return 1");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_2()
         {
@@ -36,6 +44,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 2, "This Path should return 2");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_3()
         {
@@ -50,6 +62,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 3, "This Path should return 3");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_4()
         {
@@ -64,6 +80,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 4, "This Path should return 4");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_5()
         {
@@ -78,6 +98,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 5, "This Path should return 5");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_6()
         {
@@ -92,6 +116,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 6, "This Path should return 6");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_7()
         {
@@ -106,6 +134,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 7, "This Path should return 7");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #8
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_8()
         {
@@ -120,6 +152,10 @@ namespace MessageBoxUnitTests
             Assert.True(ret == 8, "This Path should return 8");
         }
 
+        /// <summary>
+        /// See Diagram MessageBoxPathToTest.jpg
+        /// Shows path to reach Box #9
+        /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_9()
         {
@@ -133,10 +169,20 @@ namespace MessageBoxUnitTests
         }
 
     }
+    /// <summary>
+    /// Simulates MessageBox Service so the code 
+    /// referencing IMessageBoxService can be unit tested
+    /// </summary>
     public class MessageBoxServiceSimulator : IMessageBoxService
     {
+        /// List of answers a messagebox should return during the lifetime of the instance MessageBoxServiceSimulator
         Queue<MessageBoxServiceResult> messageBoxServiceResults = new Queue<MessageBoxServiceResult>();
 
+        /// <summary>
+        /// List of answers a messagebox should return during its lifeitme (TEST)
+        /// The Queue will return one prefilled answer each time the Show() method is called (in queue order)
+        /// The Queue should be filled with the proper number of answer for the unit test
+        /// </summary>
         public Queue<MessageBoxServiceResult> ButtonQueue  { get => messageBoxServiceResults; set => messageBoxServiceResults = value; }
 
         public MessageBoxServiceSimulator()
