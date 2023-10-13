@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace MessageBoxUtilities
+namespace Delange.MessageBox
 {
     public interface IMessageBoxService
     {

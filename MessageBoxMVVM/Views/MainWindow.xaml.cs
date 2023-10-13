@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MessageBoxMVVM.ViewModels;
+using System.Windows;
 
 namespace MessageBoxMVVM.Views
 {
@@ -8,9 +9,10 @@ namespace MessageBoxMVVM.Views
     public partial class MainWindow : Window
     {
 
-        public MainWindow()
+        public MainWindow(MainWindowViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

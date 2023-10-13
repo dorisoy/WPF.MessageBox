@@ -1,18 +1,86 @@
-
+﻿using Delange.MessageBox;
 using MessageBoxMVVM.ViewModels;
-using MessageBoxUtilities;
-using System.Collections.Generic;
 using System.Windows;
-using Xunit;
 
 namespace MessageBoxUnitTests
 {
-
-    /// <summary>
-    /// Unit test the complex path 
-    /// </summary>
     public class MainWindowViewModelTest
     {
+
+
+        [Fact]
+        public void TestComplexPathWithMessageBoxes_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Yes);
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Yes);
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.ComplexPathCommand.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
+
+        [Fact]
+        public void Button1_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.Button1Command.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
+
+        [Fact]
+        public void Button2_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.Button2Command.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
+
+        [Fact]
+        public void Button3_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.Button3Command.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
+                [Fact]
+        public void Button4_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.Button4Command.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
+                [Fact]
+        public void Button5_Command()
+        {
+            MessageBoxServiceSimulator mbe = new MessageBoxServiceSimulator();
+            mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
+
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            vm.Button5Command.Execute(null);
+            var ret = mbe.LastReturn;
+            Assert.True(ret == MessageBoxServiceResult.OK, "This Path should return OK");
+        }
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
         /// Shows path to reach Box #1
@@ -27,8 +95,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
 
             MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm. ComplexPathWithMessageBoxes();
-            Assert.True( ret == 1,"This Path should return 1");
+            var ret = mwvm.ComplexPathWithMessageBoxes();
+            Assert.True(ret == 1, "This Path should return 1");
         }
 
         /// <summary>
@@ -62,8 +130,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.No);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 3, "This Path should return 3");
         }
 
@@ -80,8 +148,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Cancel);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Yes);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 4, "This Path should return 4");
         }
 
@@ -98,8 +166,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Cancel);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.No);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 5, "This Path should return 5");
         }
 
@@ -116,8 +184,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Yes);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 6, "This Path should return 6");
         }
 
@@ -134,8 +202,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.No);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 7, "This Path should return 7");
         }
 
@@ -152,8 +220,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Cancel);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 8, "This Path should return 8");
         }
 
@@ -168,8 +236,8 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.No);
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.Cancel);
 
-            MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            MainWindowViewModel vm = new MainWindowViewModel(mbe);
+            var ret = vm.ComplexPathWithMessageBoxes();
             Assert.True(ret == 9, "This Path should return 9");
         }
 
@@ -188,7 +256,12 @@ namespace MessageBoxUnitTests
         /// The Queue will return one prefilled answer each time the Show() method is called (in queue order)
         /// The Queue should be filled with the proper number of answer for the unit test
         /// </summary>
-        public Queue<MessageBoxServiceResult> ButtonQueue  { get => messageBoxServiceResults; set => messageBoxServiceResults = value; }
+        public Queue<MessageBoxServiceResult> ButtonQueue { get => messageBoxServiceResults; set => messageBoxServiceResults = value; }
+
+        /// <summary>
+        /// Keep the last button clicked (TEST)
+        /// </summary>
+        public MessageBoxServiceResult LastReturn { get; set; }
 
         public MessageBoxServiceSimulator()
         {
@@ -197,52 +270,62 @@ namespace MessageBoxUnitTests
 
         public MessageBoxServiceResult Show(string messageBoxText)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(string messageBoxText, string caption)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
-            return messageBoxServiceResults.Dequeue();
-        }
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn; }
 
         public MessageBoxServiceResult Show(string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultResult)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(Window owner, string messageBoxText)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
 
         public MessageBoxServiceResult Show(Window owner, string messageBoxText, string caption, MessageBoxServiceButton button, MessageBoxServiceIcon icon, MessageBoxServiceResult defaultResult)
         {
-            return messageBoxServiceResults.Dequeue();
+            LastReturn = messageBoxServiceResults.Dequeue();
+            return LastReturn;
         }
     }
 }
+
