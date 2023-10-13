@@ -1,4 +1,5 @@
-using Dialog.ViewModels;
+
+using MessageBoxMVVM.ViewModels;
 using MessageBoxUtilities;
 using System.Collections.Generic;
 using System.Windows;
@@ -6,11 +7,15 @@ using Xunit;
 
 namespace MessageBoxUnitTests
 {
+
+    /// <summary>
+    /// Unit test the complex path 
+    /// </summary>
     public class MainWindowViewModelTest
     {
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #1
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_1()
@@ -22,13 +27,13 @@ namespace MessageBoxUnitTests
             mbe.ButtonQueue.Enqueue(MessageBoxServiceResult.OK);
 
             MainWindowViewModel mwvm = new MainWindowViewModel(mbe);
-            var ret = mwvm.ComplexPathWithMessageBoxes();
+            var ret = mwvm. ComplexPathWithMessageBoxes();
             Assert.True( ret == 1,"This Path should return 1");
         }
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #2
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_2()
@@ -46,7 +51,7 @@ namespace MessageBoxUnitTests
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #3
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_3()
@@ -64,7 +69,7 @@ namespace MessageBoxUnitTests
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #4
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_4()
@@ -82,7 +87,7 @@ namespace MessageBoxUnitTests
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #5
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_5()
@@ -100,7 +105,7 @@ namespace MessageBoxUnitTests
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #6
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_6()
@@ -118,7 +123,7 @@ namespace MessageBoxUnitTests
 
         /// <summary>
         /// See Diagram MessageBoxPathToTest.jpg
-        /// Shows path to reach Box #9
+        /// Shows path to reach Box #7
         /// </summary>
         [Fact]
         public void TestComplexPathWithMessageBoxes_7()

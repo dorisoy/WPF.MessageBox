@@ -1,12 +1,16 @@
-﻿using Dialog.Views;
+﻿using Prism.Unity;
+using System;
+using System.Collections.Generic;
 using MessageBoxUtilities;
 using Prism.Ioc;
-using Prism.Modularity;
-using Prism.Unity;
-using System;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
+using MessageBoxMVVM.Views;
 
-namespace Dialog
+namespace MessageBoxMVVM
 {
     /// <summary>
     /// Interaction logic for App.xaml

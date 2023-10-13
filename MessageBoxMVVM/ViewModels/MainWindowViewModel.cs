@@ -2,12 +2,8 @@
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Dialog.ViewModels
+namespace MessageBoxMVVM.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
@@ -19,12 +15,19 @@ namespace Dialog.ViewModels
         public DelegateCommand ComplexPathCommand { get; private set; }
 
         private string _dialogResult;
+        /// <summary>
+        /// Displays the last MessageBox result
+        /// </summary>
         public string DialogResult { get { return _dialogResult; } private set { SetProperty(ref _dialogResult, value); } }
 
 
 
         protected IMessageBoxService _messageBox;
 
+        /// <summary>
+        /// MessageBox Service Injected by Prism - Unity
+        /// </summary>
+        /// <param name="messageBoxService"></param>
         public MainWindowViewModel(IMessageBoxService messageBoxService)
         {
             _messageBox = messageBoxService;
@@ -47,13 +50,13 @@ namespace Dialog.ViewModels
         /// A logical path that involves multiple decisions triggered by MessageBoxes
         /// Test for code coverage (all paths are tested)
         /// </summary>
-        /// <returns>true for valid path, false for invalid</returns>
+        /// <returns>the exit path</returns>
         public int ComplexPathWithMessageBoxes()
         {
             Console.WriteLine("Start");
             var res = _messageBox.Show("Please Answer", "MessageBox 1", MessageBoxServiceButton.YesNo);
             Console.WriteLine($"User Clicked {res}");
-            if(res == MessageBoxServiceResult.Yes)
+            if (res == MessageBoxServiceResult.Yes)
             {
                 // Yes
                 res = _messageBox.Show("Please Answer", "MessageBox 2", MessageBoxServiceButton.Ok);
@@ -61,12 +64,12 @@ namespace Dialog.ViewModels
                 Console.WriteLine($"User Clicked {res}");
                 res = _messageBox.Show("Let's go", "For Sure", MessageBoxServiceButton.YesNo);
                 Console.WriteLine($"User Clicked {res}");
-                if (res== MessageBoxServiceResult.Yes)
+                if (res == MessageBoxServiceResult.Yes)
                 {
                     Console.WriteLine("Yes For sure");
                     res = _messageBox.Show("Let's go", "MessageBox 6", MessageBoxServiceButton.OkCancel);
                     Console.WriteLine($"User Clicked {res}");
-                    if( res== MessageBoxServiceResult.OK)
+                    if (res == MessageBoxServiceResult.OK)
                     {
                         return 1;
                     }
@@ -83,7 +86,7 @@ namespace Dialog.ViewModels
             {
                 res = _messageBox.Show("Let's go", "MessageBox 3", MessageBoxServiceButton.OkCancel);
                 Console.WriteLine($"User Clicked {res}");
-                if(res == MessageBoxServiceResult.Cancel)
+                if (res == MessageBoxServiceResult.Cancel)
                 {
                     return 9;
                 }
@@ -91,14 +94,15 @@ namespace Dialog.ViewModels
                 {
                     res = _messageBox.Show("Let's go", "MessageBox 5", MessageBoxServiceButton.OkCancel);
                     Console.WriteLine($"User Clicked {res}");
-                    if(res== MessageBoxServiceResult.Cancel)
+                    if (res == MessageBoxServiceResult.Cancel)
                     {
                         res = _messageBox.Show("Let's go", "MessageBox 8", MessageBoxServiceButton.YesNo);
                         Console.WriteLine($"User Clicked {res}");
-                        if(res== MessageBoxServiceResult.Yes)
+                        if (res == MessageBoxServiceResult.Yes)
                         {
                             return 4;
-                        }else
+                        }
+                        else
                         {
                             return 5;
                         }
@@ -108,16 +112,16 @@ namespace Dialog.ViewModels
                     {
                         res = _messageBox.Show("Let's go", "MessageBox 9", MessageBoxServiceButton.YesNoCancel);
                         Console.WriteLine($"User Clicked {res}");
-                        switch(res)
+                        switch (res)
                         {
                             case MessageBoxServiceResult.Yes:
                                 return 6;
-                            case MessageBoxServiceResult.No:    
+                            case MessageBoxServiceResult.No:
                                 return 7;
                             case MessageBoxServiceResult.Cancel:
                             default:
                                 return 8;
-                        }    
+                        }
                     }
                 }
 
