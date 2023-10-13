@@ -1,4 +1,6 @@
 # MVVM MessageBox Service for WPF (using Dependency Injection)
+This service illustrate how you can have a view model that displays dialog boxes but still can be easily uniyt tested.
+In the example the MainViewModel is unit tested at 100% code coverage even with a complex path that display mutiple dialogs with various choices.
 A C# MVVM Service for displaying simple MessageBox messages with custom styles included - Uses MVVM Toolkit with Microsoft.Extensions.DependencyInjection but can be adapted to any MVVM / DI Library.
 Include samples and an Example to unit test code involving a complex path with multiple MessageBoxes
 
